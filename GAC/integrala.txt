@@ -1,0 +1,5 @@
+function g=integrala(t,y,E,w)
+g=zeros(1,1);
+g=E.*square(w.*t);
+
+end

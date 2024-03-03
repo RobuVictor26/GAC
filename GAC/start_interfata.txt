@@ -1,0 +1,108 @@
+clc
+clear all
+close all
+
+E=15;
+Vi=10;
+R1=10^3;
+R2=3*10^3;
+a1=5;
+R=15*10^2;
+C=10^-7;
+T=2*(R1/R2)*R*C;
+
+
+
+figure('Name','Meniu',...
+           'Units','normalized',...
+           'Position', [0.1 0.1 0.7 0.4],...
+           'NumberTitle', 'off', 'color',[1 1 1]);
+
+uicontrol('Style','pushbutton',...
+          'Units','normalized',...
+          'Position',[0.65 0.25 0.2 0.05],...
+          'String','GRAFIC',...
+          'Callback','tabel(E,R1,R2,a1,R,C,T,f)');
+
+uicontrol('Style','pushbutton',...
+          'Units','normalized',...
+          'Position',[0.15 0.25 0.2 0.05],...
+          'String','CIRCUIT',...
+          'Callback','circuite');
+
+uicontrol('Style','pushbutton',...
+          'Units','normalized',...
+          'Position',[0.4 0.25 0.2 0.05],...
+          'String','Reprezentare',...
+          'Callback','interfata(E,Vi,R1,R2,a1,R,C,T,f)');
+
+uicontrol('Style','pushbutton',...
+          'Units','normalized',...
+          'Position',[0.4275 0.45 0.15 0.05],...
+          'String','Documentatie',...
+          'Callback','ppt');
+
+subplot('position',[0.05 0.75 0.2 0.2])
+p=imread('logo.jfif');
+imshow(p);
+
+uicontrol('Style','text',...
+          'Units','normalized',...
+          'Position', [0.375 0.6 0.25 0.05],...
+          'foregroundcolor','white',...
+          'backgroundcolor','black',...
+          'fontsize', 20,...
+          'String','Generator de semnal PWM');
+
+xy=axes('unit','normalized', 'position', [0 0 1 1]);
+bg=imread('fundal 1.jpg');
+imagesc(bg);
+set(xy, 'handlevisibility','off','visible','off')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+f= uimenu('Label','Documentatie');
+   uimenu(f,'Label','Grafic','Callback','calcul(E,R1,R2,a1,R,C,T,f)');
+   uimenu(f,'Label','Circuit','Callback',' butoane');
+   uimenu(f,'Label','Reprezentare','Callback','interfata(E,R1,R2,a1,R,C,T,f)');
+   uimenu(f,'Label','PPT','Callback','ppt');
+   uimenu(f,'Label','Close','Callback','close',...
+         'Separator','on','Accelerator','Q');
